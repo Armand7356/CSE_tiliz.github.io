@@ -1,4 +1,5 @@
-// Mock database for demonstration (use a backend server in real applications)
+
+// Simple mock database for demonstration (you should use a backend server in a real-world scenario)
 let users = [
     { username: "admin", password: "admin123", role: "admin" },
     { username: "user1", password: "user123", role: "user" },
@@ -38,6 +39,7 @@ function enableAdminFeatures() {
     });
 
     document.getElementById("admin-controls").style.display = "block";
+    document.getElementById("logout-button").style.display = "inline-block";
 }
 
 // Save editable content (mock implementation)
@@ -63,4 +65,16 @@ function addUser(event) {
     } else {
         alert("Vous n'avez pas l'autorisation d'ajouter des utilisateurs.");
     }
+}
+
+// Logout functionality
+function handleLogout() {
+    currentUser = null;
+    document.querySelectorAll("[contenteditable='true']").forEach(element => {
+        element.style.outline = "none";
+        element.style.backgroundColor = "transparent";
+    });
+    document.getElementById("admin-controls").style.display = "none";
+    document.getElementById("logout-button").style.display = "none";
+    alert("Vous êtes déconnecté.");
 }

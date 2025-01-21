@@ -16,13 +16,16 @@
                 <li><a href="partenaires.html">Partenaires</a></li>
                 <li><a href="avantages.html">Avantages</a></li>
             </ul>
-            <button class="login-button" onclick="showLoginModal()">Admin</button>
         </nav>
     </header>
+    
     <main>
-        <h2 contenteditable="true">Bienvenue sur le site du CSE</h2>
-        <p contenteditable="true">Ceci est une introduction que les administrateurs peuvent modifier.</p>
+        <h2>Bienvenue sur le site du CSE de Tiliz</h2>
+        <p>Découvrez les rôles, les partenaires et les avantages offerts par le Comité Social et Économique.</p>
     </main>
+    <footer>
+        <p>&copy; 2025 CSE de Tiliz. Tous droits réservés.</p>
+    </footer>
 
     <!-- Admin controls (hidden by default) -->
     <div id="admin-controls" style="display: none; margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
@@ -56,5 +59,43 @@
 
     <!-- Script for admin features -->
     <script src="script.js"></script>
-</body>
+    
+        <!-- Admin controls (hidden by default) -->
+        <div id="admin-controls" style="display: none; margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+            <h3>Mode Administrateur</h3>
+            <button onclick="saveContent()">Sauvegarder les modifications</button>
+            <h4>Ajouter un utilisateur</h4>
+            <form id="add-user-form" onsubmit="addUser(event)">
+                <label for="new-username">Nom d'utilisateur :</label>
+                <input type="text" id="new-username" required><br>
+                <label for="new-password">Mot de passe :</label>
+                <input type="password" id="new-password" required><br>
+                <label for="new-role">Rôle :</label>
+                <select id="new-role">
+                    <option value="user">Utilisateur</option>
+                    <option value="admin">Administrateur</option>
+                </select><br>
+                <button type="submit">Ajouter</button>
+            </form>
+        </div>
+
+        <!-- Logout button -->
+        <button id="logout-button" style="display: none; margin-top: 10px;" onclick="handleLogout()">Se déconnecter</button>
+
+        <!-- Login modal -->
+        <div id="login-modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+            <form onsubmit="handleLogin(event)">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" id="username" required><br>
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" required><br>
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+
+        <!-- Script for admin features -->
+        <script src="script.js"></script>
+        </body>
+        
+    
 </html>
