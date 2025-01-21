@@ -17,7 +17,8 @@ function enableAdminMode() {
     isAdmin = true;
     document.getElementById("login-button").innerText = "Déconnexion";
     document.getElementById("admin-controls").style.display = "block";
-    document.querySelectorAll("[contenteditable='true']").forEach(element => {
+    document.querySelectorAll("[data-editable='true']").forEach(element => {
+        element.setAttribute("contenteditable", "true");
         element.style.outline = "2px dashed #007BFF";
         element.style.backgroundColor = "#f0f8ff";
     });
@@ -28,7 +29,8 @@ function disableAdminMode() {
     isAdmin = false;
     document.getElementById("login-button").innerText = "Connexion";
     document.getElementById("admin-controls").style.display = "none";
-    document.querySelectorAll("[contenteditable='true']").forEach(element => {
+    document.querySelectorAll("[data-editable='true']").forEach(element => {
+        element.removeAttribute("contenteditable");
         element.style.outline = "none";
         element.style.backgroundColor = "transparent";
     });
@@ -70,7 +72,7 @@ async function handleLogout() {
 
 // Sauvegarder les contenus modifiés
 function saveContent() {
-    const updates = Array.from(document.querySelectorAll("[contenteditable='true']")).map(element => ({
+    const updates = Array.from(document.querySelectorAll("[data-editable='true']")).map(element => ({
         id: element.id,
         content: element.innerHTML,
     }));

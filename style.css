@@ -73,3 +73,16 @@ footer {
     background-color: #e6f7ff;
 }
 
+[data-editable="true"] {
+    outline: 2px dashed transparent;
+    transition: outline 0.3s ease, background-color 0.3s ease;
+}
+
+[data-editable="true"][contenteditable="true"] {
+    outline: 2px dashed #007BFF;
+    background-color: #f0f8ff;
+}
+
+[data-editable="true"]:focus {
+    background-color: #e6f7ff;
+}
