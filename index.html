@@ -20,12 +20,9 @@
                 <li><a href="roles.html">Rôles du CSE</a></li>
                 <li><a href="partenaires.html">Partenaires</a></li>
                 <li><a href="avantages.html">Avantages</a></li>
+                <button id="login-button" onclick="isAdmin ? handleLogout() : showLoginModal()">Connexion</button>
             </ul>
         </nav>
-    </header>
-    <header>
-        <h1>CSE de Tiliz</h1>
-        <button id="login-button" onclick="isAdmin ? handleLogout() : showLoginModal()">Connexion</button>
     </header>
     <div id="admin-controls" style="display: none;">
         <button onclick="saveContent()">Sauvegarder</button>
