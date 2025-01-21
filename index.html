@@ -16,16 +16,13 @@
                 <li><a href="partenaires.html">Partenaires</a></li>
                 <li><a href="avantages.html">Avantages</a></li>
             </ul>
+            <button class="login-button" onclick="showLoginModal()">Admin</button>
         </nav>
     </header>
-    
     <main>
-        <h2>Bienvenue sur le site du CSE de Tiliz</h2>
-        <p>Découvrez les rôles, les partenaires et les avantages offerts par le Comité Social et Économique.</p>
+        <h2 contenteditable="true">Bienvenue sur le site du CSE</h2>
+        <p contenteditable="true">Ceci est une introduction que les administrateurs peuvent modifier.</p>
     </main>
-    <footer>
-        <p>&copy; 2025 CSE de Tiliz. Tous droits réservés.</p>
-    </footer>
 
     <!-- Admin controls (hidden by default) -->
     <div id="admin-controls" style="display: none; margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
@@ -59,6 +56,5 @@
 
     <!-- Script for admin features -->
     <script src="script.js"></script>
-    </body>
-    
+</body>
 </html>

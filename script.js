@@ -1,5 +1,4 @@
-
-// Simple mock database for demonstration (you should use a backend server in a real-world scenario)
+// Mock database for demonstration (use a backend server in real applications)
 let users = [
     { username: "admin", password: "admin123", role: "admin" },
     { username: "user1", password: "user123", role: "user" },
