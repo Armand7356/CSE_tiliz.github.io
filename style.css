@@ -6,7 +6,7 @@ body {
     color: #333;
 }
 
-/* Style pour la navigation */
+/* Navigation */
 nav ul {
     list-style: none;
     padding: 0;
@@ -20,21 +20,24 @@ nav ul li {
     display: inline-block;
 }
 
-/* Style des boutons */
-nav ul li button {
+/* Liens stylisés comme des boutons */
+nav ul li a {
+    display: inline-block;
     font-size: 1rem;
     padding: 0.5rem 1rem;
-    border: none;
-    background-color: #007BFF; /* Couleur par défaut */
+    text-decoration: none;
     color: white;
+    background-color: #007BFF; /* Couleur par défaut */
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Effet de transition */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-nav ul li button:hover {
+/* Effet de survol */
+nav ul li a:hover {
     background-color: #0056b3; /* Couleur au survol */
+    transform: scale(1.05); /* Léger agrandissement au survol */
 }
+
 
 
 header {
