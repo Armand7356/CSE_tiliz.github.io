@@ -1,4 +1,9 @@
+
 <!DOCTYPE html>
+<script src="script/api.js"></script>
+<script src="script/main.js"></script>
+<script src="script/admin.js"></script>
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -17,8 +22,14 @@
                 <li><a href="avantages.html">Avantages</a></li>
             </ul>
         </nav>
-        <button class="login-button" onclick="showLoginModal()">Connexion</button>
     </header>
+    <header>
+        <h1>CSE de Tiliz</h1>
+        <button id="login-button" onclick="isAdmin ? handleLogout() : showLoginModal()">Connexion</button>
+    </header>
+    <div id="admin-controls" style="display: none;">
+        <button onclick="saveContent()">Sauvegarder</button>
+    </div>
     
     <main>
         <h2>Bienvenue sur le site du CSE de Tiliz</h2>
