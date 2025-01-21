@@ -63,4 +63,13 @@ footer {
 }
 
 
+[contenteditable="true"] {
+    outline: 2px dashed #007BFF;
+    background-color: #f0f8ff;
+    transition: background-color 0.3s ease;
+}
+
+[contenteditable="true"]:focus {
+    background-color: #e6f7ff;
+}
 
