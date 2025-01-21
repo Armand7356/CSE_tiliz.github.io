@@ -6,14 +6,7 @@ body {
     color: #333;
 }
 
-
-header {
-    background: #333;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-}
-
+/* Style pour la navigation */
 nav ul {
     list-style: none;
     padding: 0;
@@ -24,22 +17,32 @@ nav ul {
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    background: #333;
+/* Style des boutons */
+nav ul li button {
+    font-size: 1rem;
     padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007BFF; /* Couleur par défaut */
+    color: white;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Effet de transition */
 }
 
-nav ul li a:hover {
+nav ul li button:hover {
+    background-color: #0056b3; /* Couleur au survol */
+}
+
+
+header {
     background: #333;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
 }
-
 
 main {
     padding: 2rem;
@@ -58,12 +61,3 @@ footer {
 
 
 
-nav ul ul ul  {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
