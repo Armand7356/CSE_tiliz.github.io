@@ -29,3 +29,24 @@ async function saveContent(updates) {
     });
     return response.json();
 }
+
+async function simulateAPI(url, options) {
+    if (url === "/api/check-session") {
+        return { json: async () => ({ isAdmin: isAdmin }) };
+    }
+    if (url === "/api/login") {
+        const body = JSON.parse(options.body);
+        if (body.username === "admin" && body.password === "admin123") {
+            isAdmin = true;
+            return { json: async () => ({ success: true }) };
+        } else {
+            return { json: async () => ({ success: false }) };
+        }
+    }
+    if (url === "/api/logout") {
+        isAdmin = false;
+        return { json: async () => ({ success: true }) };
+    }
+    throw new Error("API non gérée dans la simulation.");
+}
+

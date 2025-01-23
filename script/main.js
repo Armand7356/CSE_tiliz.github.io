@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Vérifier la session
 async function checkSession() {
     try {
-        const response = await fetch("/api/check-session");
+        const response = await simulateAPI("/api/check-session");
         const data = await response.json();
         if (data.isAdmin) {
             enableEditing();
@@ -54,7 +54,7 @@ async function handleLogin(event) {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    const response = await fetch("/api/login", {
+    const response = await simulateAPI("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })
@@ -72,7 +72,7 @@ async function handleLogin(event) {
 
 // Handle logout
 async function handleLogout() {
-    const response = await fetch("/api/logout", { method: "POST" });
+    const response = await simulateAPI("/api/logout", { method: "POST" });
     const data = await response.json();
 
     if (data.success) {
@@ -88,7 +88,7 @@ async function saveContent() {
         content: el.innerHTML
     }));
 
-    const response = await fetch("/api/save-content", {
+    const response = await simulateAPI("/api/save-content", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ updates })
