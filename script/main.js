@@ -120,3 +120,13 @@ async function simulateAPI(url, options) {
         return { json: async () => ({ success: true }) };
     }
 }
+
+// Afficher le modal de connexion
+function showLoginModal() {
+    const modal = document.getElementById("login-modal");
+    if (modal) {
+        modal.style.display = "block";
+    } else {
+        console.error("Le modal de connexion n'a pas été trouvé.");
+    }
+}
