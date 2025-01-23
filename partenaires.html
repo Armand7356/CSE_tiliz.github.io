@@ -26,6 +26,9 @@
         </nav>
     </header>
     <main>
+        <h2 data-editable="true">Bienvenue sur le site du CSE</h2>
+        <p data-editable="true">Ce texte peut être modifié par un administrateur connecté.</p>
+        
         <h2>Nos Partenaires</h2>
         <p>Voici les partenaires du CSE avec leurs liens :</p>
         <ul>
@@ -79,6 +82,20 @@
 
         <!-- Script for admin features -->
         <script src="script.js"></script>
+        
+        <!-- Admin Controls -->
+        <button id="save-button" style="display: none;" onclick="saveContent()">Sauvegarder</button>
+        <div id="login-modal" style="display: none;">
+            <form onsubmit="handleLogin(event)">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" id="username" required><br>
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" required><br>
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+        <script src="script/main.js"></script>
         </body>
+        
         
 </html>
