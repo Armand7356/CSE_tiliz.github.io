@@ -60,15 +60,16 @@
         <button id="logout-button" style="display: none; margin-top: 10px;" onclick="handleLogout()">Se déconnecter</button>
 
         <!-- Login modal -->
-        <div id="login-modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+        <div id="login-modal" style="display: none;">
             <form onsubmit="handleLogin(event)">
-                <label for="username">Nom d'utilisateur :</label>
-                <input type="text" id="username" required><br>
-                <label for="password">Mot de passe :</label>
-                <input type="password" id="password" required><br>
+                <label for="login-username">Nom d'utilisateur :</label>
+                <input type="text" id="login-username" autocomplete="username" required><br>
+                <label for="login-password">Mot de passe :</label>
+                <input type="password" id="login-password" autocomplete="current-password" required><br>
                 <button type="submit">Se connecter</button>
             </form>
         </div>
+        
 
         <!-- Script for admin features -->
         <script src="script/api.js"></script>

@@ -6,18 +6,23 @@ document.addEventListener("DOMContentLoaded", () => {
     checkSession();
 });
 
-// Check if the session is active
+
+// Vérifier la session
 async function checkSession() {
-    const response = await fetch("/api/check-session");
-    const data = await response.json();
-    if (data.isAdmin) {
-        enableEditing();
-    } else {
-        disableEditing();
+    try {
+        const response = await fetch("/api/check-session");
+        const data = await response.json();
+        if (data.isAdmin) {
+            enableEditing();
+        } else {
+            disableEditing();
+        }
+    } catch (error) {
+        console.error("Erreur lors de la vérification de la session :", error);
     }
 }
 
-// Enable editing mode for admins
+// Activer le mode édition
 function enableEditing() {
     isAdmin = true;
     document.getElementById("login-button").innerText = "Déconnexion";
@@ -29,7 +34,7 @@ function enableEditing() {
     });
 }
 
-// Disable editing mode for non-admins
+// Désactiver le mode édition
 function disableEditing() {
     isAdmin = false;
     document.getElementById("login-button").innerText = "Connexion";
@@ -40,6 +45,8 @@ function disableEditing() {
         el.style.backgroundColor = "transparent";
     });
 }
+
+
 
 // Handle login
 async function handleLogin(event) {
@@ -91,5 +98,25 @@ async function saveContent() {
         alert("Contenu sauvegardé avec succès !");
     } else {
         alert("Erreur lors de la sauvegarde.");
+    }
+}
+
+// Simuler les appels API
+async function simulateAPI(url, options) {
+    if (url === "/api/check-session") {
+        return { json: async () => ({ isAdmin: isAdmin }) };
+    }
+    if (url === "/api/login") {
+        const body = JSON.parse(options.body);
+        if (body.username === "admin" && body.password === "admin123") {
+            isAdmin = true;
+            return { json: async () => ({ success: true }) };
+        } else {
+            return { json: async () => ({ success: false }) };
+        }
+    }
+    if (url === "/api/logout") {
+        isAdmin = false;
+        return { json: async () => ({ success: true }) };
     }
 }
